@@ -69,7 +69,7 @@ export class Employee extends Component {
             Department: emp.Department,
             DateOfJoining: emp.DateOfJoining,
             PhotoFileName: emp.PhotoFileName
-        })
+        });
     }
 
     creatClick() {
@@ -198,7 +198,7 @@ export class Employee extends Component {
                         {employees.map(emp =>
                             <tr key={emp.EmployeeId}>
                                 <td>{emp.EmployeeId}</td>
-                                <td>{emp.DepartmentName}</td>
+                                <td>{emp.EmployeeName}</td>
                                 <td>{emp.Department}</td>
                                 <td>{emp.DateOfJoining}</td>
                                 <td>
@@ -250,11 +250,20 @@ export class Employee extends Component {
                                             <select className='form-select'
                                                 onChange={this.changeDepartment}
                                                 value={Department}>
-                                                {departments.map(dep => <option key={dep.DepartmentId}>
-                                                    {dep.DepartmentName}
-                                                </option>)}
+                                                <option selected value="">Select Department</option>
+                                                {departments.map(dep =>
+                                                    <option key={dep.DepartmentId}>
+                                                        {dep.DepartmentName}
+                                                    </option>)}
                                             </select>
                                         </div>
+
+                                        {/* <div className='input-group mb-3'>
+                                            <span className='input-group-text'>DepartmentName</span>
+                                            <input type='text' className='form-control'
+                                                value={DepartmentName}
+                                                onChange={this.changeEmployeeName} />
+                                        </div> */}
 
                                         <div className='input-group mb-3'>
                                             <span className='input-group-text'>DOJ</span>
